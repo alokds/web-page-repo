@@ -12,7 +12,20 @@
 </CENTER>
 
 <HR>
-<H1>
 
-<This is first html file>
+if you want to know more click here
+<a href="aboutus.html">ABOUT US</a>
+<H1>This is first header</H1>
+
+<H2>This is medium header</H2>
+
+<P> This is new paragraph!
+
+<BR><B><I> This is new paragraph in bold and italic!</B></I>
+<BR><U><B> This is starting now.....</U></B>
+
+</HR>
+</BODY>
+</HTML>
+
 

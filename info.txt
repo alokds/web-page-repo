@@ -1,2 +1,0 @@
-I am working on GIT project. This is my first file created on local system.
-

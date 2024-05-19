@@ -1,0 +1,56 @@
+from art import logo_hl, logo_vs
+from random import choice
+from replit import clear
+from game_data import data
+
+#get random data from game_data
+def random_data():
+    return random.choice(data)
+    
+# print a and b from data
+
+def print_data(account):
+    name = account["name"]
+    description = account["description"]
+    country = account["country"]
+    return f"{name}, a {description}, from {country}"
+
+
+
+# guess a or b and print the result of guess
+
+def check_answer(guess, a_follower_count, b_follower_count):
+    if a_follower_count > b_follower_count:
+        return guess == "a"
+    else:
+        return guess == "b"
+
+def game():
+    print(logo_hl)
+    score = 0
+    game_should_continue = True
+    account_b = random_data()
+
+    while game_should_continue:
+        account_a = account_b
+        account_b = random_data()
+        while account_a == account_b:
+          account_b = random_data()
+        
+        print(f"Compare A : {print_data(account_a)}")
+        print(logo_vs)
+        print(f"Against B : {print_data(account_b)}")
+        guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+        a_follower_count = account_a["follower_count"]
+        b_follower_count = account_b["follower_count"]
+        is_correct = check_answer(guess, a_follower_count, b_follower_count)
+        
+        clear()
+        print(logo_hl)
+        if is_correct:
+            score += 1
+            print(f"You're right! Current score: {score}.")
+        else:
+            game_should_continue = False
+            print(f"Sorry, that's wrong. Final score: {score}")
+game()
